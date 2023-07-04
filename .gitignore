@@ -1,0 +1,25 @@
+# Compiled source #
+###################
+*.pyc
+*.py~
+__pycache__
+
+.tox
+
+# Build dirs #
+# ############
+_build
+build
+*~
+dist
+htmlcov
+*.egg-info
+
+*.idea
+*.swp
+
+.coverage
+.pytest_cache/
+.python_version
+
+sandbox
