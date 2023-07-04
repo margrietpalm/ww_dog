@@ -52,9 +52,9 @@ res = get_chance_dog_result(n_players, n_wolf)
 
 st.markdown(f"""
 DoG uitslagen bij willekeurige keuze:
-* BB: {int(math.round(100*res['bb']))}%
-* BW: {int(math.round(100*res['bw']))}%
-* WW: {int(math.round(100*res['ww']))}%
+* BB: {int(round(100*res['bb']))}%
+* BW: {int(round(100*res['bw']))}%
+* WW: {int(round(100*res['ww']))}%
 """)
 
 
