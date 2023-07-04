@@ -16,8 +16,10 @@ def get_result_prob(n_wolf):
 
 
 def get_comb_chance(n_players, n_wolf, n_dog_w, n_dog=3):
+    # exclude DoG from population
+    n_clean = n_players-1
     # derive number of civilians from other numbers    
-    n_civ = n_players-n_wolf
+    n_civ = n_clean-n_wolf
     # derive number of civilians in dog result from other numbers
     n_dog_c = n_dog-n_dog_w
     # compute number of combinations that contain n_dog_w
@@ -25,7 +27,7 @@ def get_comb_chance(n_players, n_wolf, n_dog_w, n_dog=3):
     # compute number of combinations that contain n_dog_c
     n_comb_c = math.comb(n_civ, n_dog_c)
     # compute total number of combinations
-    n_comb_t = math.comb(n_players, n_dog)
+    n_comb_t = math.comb(n_clean, n_dog)
     # compute chance of set for dog claim
     return (n_comb_w*n_comb_c)/n_comb_t
 
@@ -45,7 +47,7 @@ def get_chance_dog_result(n_players, n_wolf):
 
 st.title('Dorpsgekkie')
 
-n_players = st.slider('Aantal spelers', min_value=1, max_value=50, value=12)
+n_players = st.slider('Aantal spelers (inclusief DoG)', min_value=1, max_value=50, value=12)
 n_wolf = st.slider('Aantal wolven', min_value=1, max_value=n_players, value=1)
 
 res = get_chance_dog_result(n_players, n_wolf)
@@ -56,8 +58,3 @@ DoG uitslagen bij willekeurige keuze:
 * BW: {int(round(100*res['bw']))}%
 * WW: {int(round(100*res['ww']))}%
 """)
-
-
-
-
-
